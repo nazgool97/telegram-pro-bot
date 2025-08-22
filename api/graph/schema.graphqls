@@ -1,0 +1,36 @@
+type Flow {
+id: String!
+name: String!
+nodes: [Node!]!
+}
+
+
+type Node {
+id: String!
+type: String!
+data: String!
+position: Position!
+}
+
+
+input SaveFlowInput {
+id: String!
+name: String!
+nodes: [NodeInput!]!
+}
+
+
+input NodeInput {
+id: String!
+type: String!
+data: String!
+position: PositionInput!
+}
+
+
+input PositionInput { x: Float!, y: Float! }
+
+
+type Mutation {
+saveFlow(input: SaveFlowInput!): Boolean!
+}
